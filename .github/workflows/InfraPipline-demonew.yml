@@ -105,7 +105,8 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1.1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+        allow-no-subscriptions: true
         # set this if you will be using PowerShell
         # enable-AzPSSession: true 
 
@@ -165,9 +166,8 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1.1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        # set this if you will be using PowerShell
-        # enable-AzPSSession: true 
+        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+        allow-no-subscriptions: true 
 
     # Deploy Databricks Workspace
     - name: Deploy ARM Template (Databricks)
@@ -228,9 +228,8 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1.1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        # set this if you will be using PowerShell
-        # enable-AzPSSession: true 
+        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+        allow-no-subscriptions: true
 
   # Deploy Databricks Workspace
     - name: Deploy ARM Template (Databricks)
